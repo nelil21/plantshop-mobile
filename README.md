@@ -115,19 +115,19 @@ Row(
 input yang digunakan:
 TextFormField untuk "Name": Mengambil input nama produk dengan validator agar tidak kosong.
 TextFormField untuk "Amount": Mengambil input amount dan harus berupa int.
-TextFormField untuk "description": Mengambil input description lengkap dengan validator.
+TextFormField untuk "Description": Mengambil input description lengkap dengan validator.
 
 yang tidak digunakan:
-Checkbox: untuk pilihan antara ya atau tidak.
-Radio Button: Digunakan untuk memilih satu opsi dari beberapa pilihan.
-DropdownButton: Menyediakan daftar pilihan dalam format dropdown.
-Slider: Mengatur nilai di dalam rentang tertentu.
-Switch: Menyediakan opsi hidup/mati untuk suatu pengaturan.
-DatePicker dan TimePicker: Memungkinkan pengguna memilih tanggal atau waktu tertentu.
+Checkbox berfungsi untuk memilih ya atau tidak.
+Radio Button: Ini digunakan untuk memilih satu dari banyak opsi.
+DropdownButton: Memberikan daftar pilihan dalam format dropdown.
+Slider:  untuk mengatur nilai dalam batas tertentu. 
+Switch: memungkinkan opsi untuk on atau off.
+DataPicker dan TimePicker: memungkinkan pengguna memilih tanggal atau waktu tertentu.
 
 4.  Bagaimana cara kamu mengatur tema (theme) dalam aplikasi Flutter agar aplikasi yang dibuat konsisten? Apakah kamu mengimplementasikan tema pada aplikasi yang kamu buat?
  
-Untuk menjaga konsistensi tema dalam aplikasi Flutter, ThemeData dapat diterapkan dalam MaterialApp. ThemeData memungkinkan pengaturan warna, font, ukuran teks, serta elemen UI lainnya sehingga tampilan aplikasi menjadi lebih seragam.
+Untuk menjaga konsistensi tema dalam aplikasi Flutter, ThemeData dapat diterapkan dalam MaterialApp. ThemeData dapat digunakan untuk mengubah warna, font, ukuran teks, dan elemen UI lainnya untuk membuat tampilan aplikasi lebih konsisten.
 
 Apakah kamu mengimplementasikan tema pada aplikasi yang kamu buat?
 ya, Untuk memastikan bahwa gaya warna dan elemen UI konsisten di seluruh tampilan, primaryColor dan skema warna ditetapkan di ThemeData.
