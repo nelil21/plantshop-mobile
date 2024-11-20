@@ -135,4 +135,34 @@ ya, Untuk memastikan bahwa gaya warna dan elemen UI konsisten di seluruh tampila
 5.  Bagaimana cara kamu menangani navigasi dalam aplikasi dengan banyak halaman pada Flutter?
 Navigasi dalam aplikasi Flutter yang memiliki banyak halaman dapat dikelola menggunakan Navigator dengan metode seperti push(), pop(), dan pushReplacement().  Untuk navigasi yang terstruktur, dapat digunakan Named Route yang didefinisikan di MaterialApp. Drawer atau Bottom Navigation dapat ditambahkan untuk akses mudah antar halaman.
 
+===================================================
+1.  Jelaskan mengapa kita perlu membuat model untuk melakukan pengambilan ataupun pengiriman data JSON? Apakah akan terjadi error jika kita tidak membuat model terlebih dahulu?
 
+Model sangat penting untuk memastikan struktur data JSON yang konsisten, memudahkan pengolahan data, dan memungkinkan validasi otomatis. Tanpa model, pengelolaan data menjadi lebih rentan terhadap kesalahan, terutama jika struktur JSON berubah; namun, model juga mempermudah debugging dan meningkatkan efisiensi pengembangan aplikasi.
+
+2.  Jelaskan fungsi dari library http yang sudah kamu implementasikan pada tugas ini
+
+Mengambil data produk (GET): digunakan untuk mengambil data mood Django dan menampilkannya di aplikasi Flutter. 
+
+Mengirim data pengguna (POST): digunakan untuk mengirimkan data pendaftaran dan login ke Django.
+
+3.  Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+
+
+'CookieRequest' berperan penting dalam pengelolaan autentikasi berbasis sesi pada aplikasi Flutter. Dengan mendistribusikan instance ini ke seluruh komponen aplikasi, status sesi pengguna dapat tetap terjaga secara konsisten, permintaan HTTP yang membutuhkan autentikasi akan selalu menyertakan cookie yang sesuai, dan proses implementasi autentikasi menjadi lebih sederhana dan efisien. Pendekatan ini memastikan bahwa setiap permintaan HTTP terhubung dengan sesi pengguna yang benar tanpa perlu membuat ulang koneksi di berbagai bagian aplikasi.
+
+4.  Jelaskan mekanisme pengiriman data mulai dari input hingga dapat ditampilkan pada Flutter.
+
+Di Flutter, mekanisme pengiriman data dimulai dengan input pengguna melalui widget seperti TextField. Kemudian, data dikirim ke server Django menggunakan HTTP POST dalam format JSON. Server memproses data, menyimpannya di database, dan mengembalikan respons JSON. Metode fromJson digunakan oleh Flutter untuk menampilkan respons ini kepada pengguna melalui widget seperti FutureBuilder atau ListView. Proses ini memastikan bahwa data terintegrasi secara dinamis antara aplikasi.
+
+5.  Jelaskan mekanisme autentikasi dari login, register, hingga logout. Mulai dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
+
+Registrasi: Flutter mengirimkan data akun baru ke Django, yang memvalidasi dan menyimpan data ke database, lalu mengirimkan status kembali ke Flutter. 
+
+Login: Flutter mengirimkan kredensial ke Django, yang memvalidasi dan membuat sesi autentikasi, lalu mengembalikan cookie sesi ke Flutter. Cookie ini digunakan untuk memastikan status login di semua permintaan berikutnya.
+
+Logout: Flutter meminta Django untuk menghilangkan sesi, Django menghilangkan cookie, dan status aplikasi kembali ke kondisi logout.
+
+6.  Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).
+
+Pertama, saya membuat model di Flutter untuk menampilkan respons JSON dari Django. Kedua, saya menambahkan dependensi http dan provider untuk mengatur permintaan HTTP dan manajemen state. Terakhir, saya mengintegrasikan autentikasi, yang mencakup pendaftaran, log in, dan logout, dengan membuat endpoint di Django dan menghubungkannya ke Flutter menggunakan CookieRequest. Keempat, saya menggunakan FutureBuilder untuk menampilkan data dan menangani respons server untuk membuat antarmuka pengguna dinamis. Terakhir, pengujian dilakukan secara manual untuk memastikan fitur berjalan lancar, dengan debugging untuk memastikan setiap langkah dilakukan dengan benar.

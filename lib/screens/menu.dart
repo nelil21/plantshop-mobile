@@ -9,7 +9,7 @@ class MyHomePage extends StatelessWidget {
   final String className = 'PBP B'; // Kelas
 
   final List<ItemHomepage> items = [
-         ItemHomepage("Lihat Produk", Icons.mood),
+         ItemHomepage("Lihat Produk", Icons.visibility),
          ItemHomepage("Tambah Produk", Icons.add),
          ItemHomepage("Logout", Icons.logout),
      ];
@@ -31,7 +31,7 @@ class MyHomePage extends StatelessWidget {
         // Mengganti warna icon drawer menjadi putih
         iconTheme: const IconThemeData(color: Colors.white),
         // Warna latar belakang AppBar diambil dari skema warna tema aplikasi.
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: Theme.of(context).colorScheme.secondary,
       ),
       drawer: const LeftDrawer(),
       // Body halaman dengan padding di sekelilingnya.
@@ -73,20 +73,27 @@ class MyHomePage extends StatelessWidget {
                   ),
 
                   // Grid untuk menampilkan ItemCard dalam bentuk grid 3 kolom.
-                  GridView.count(
+                 GridView.count(
                     primary: true,
                     padding: const EdgeInsets.all(20),
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
                     crossAxisCount: 3,
-                    // Agar grid menyesuaikan tinggi kontennya.
                     shrinkWrap: true,
-
-                    // Menampilkan ItemCard untuk setiap item dalam list items.
-                    children: items.map((ItemHomepage item) {
-                      return ItemCard(item);
-                    }).toList(),
+                    children: List.generate(items.length, (index) {
+                      // Warna berbeda untuk setiap item dalam grid (3 warna bergantian)
+                      final backgroundColors = [Colors.yellow[200], Colors.purple[200], Colors.grey[200]]; // Perubahan di sini
+                      return Container(
+                        decoration: BoxDecoration(
+                          color: backgroundColors[index % backgroundColors.length],
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: ItemCard(items[index]),
+                      );
+                    }),
                   ),
+
+
                 ],
               ),
             ),
