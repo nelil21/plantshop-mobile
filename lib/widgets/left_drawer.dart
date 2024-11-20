@@ -19,7 +19,7 @@ class LeftDrawer extends StatelessWidget {
             child: const Column(
               children: [
                 Text(
-                  'Plantsop',
+                  'Plantshop',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 24,
@@ -49,7 +49,7 @@ class LeftDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.mood),
+            leading: const Icon(Icons.add_box),
             title: const Text('Tambah Produk'),
             // Bagian redirection ke ProductEntryFormPage
             onTap: () {
@@ -62,7 +62,7 @@ class LeftDrawer extends StatelessWidget {
 
           ),
           ListTile(
-            leading: const Icon(Icons.add_reaction_rounded),
+            leading: const Icon(Icons.list_alt),
             title: const Text('Daftar Product'),
             onTap: () {
                 // Route menu ke halaman mood
